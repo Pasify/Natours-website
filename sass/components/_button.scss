@@ -1,0 +1,107 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 5rem;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 0; 
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    transform: translate(0px, -0.5rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translate(0px, 0.5rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  // change for the <button> element
+  border: none;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    /* background: #777; */
+    border-radius: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+
+
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+  &--iced {
+    background-color: $color-tetiary-light;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-tetiary-dark;
+    }
+  }
+  
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+.button-text {
+  &:visited,
+  &:link {
+    font-size: $default-font-size;
+    color: $color-primary;
+    border-bottom: 2px solid $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translate(0 -2px);
+  }
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translate(0);
+  }
+}

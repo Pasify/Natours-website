@@ -1,0 +1,97 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__input {
+    color: inherit;
+    font-size: 1.9rem;
+    font-weight: 700;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    font-family: inherit;
+    border-bottom: 3px solid transparent;
+    width: 85%;
+    display: block;
+    transition: all 0.3s ease;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-tetiary-dark;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.7rem 0rem 0rem 2rem;
+    display: inline-block;
+    transition: all 0.5s ease;
+  }
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, -4rem);
+  }
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  &__radio-input {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  &__radio-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 3.5rem;
+  }
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-tetiary-light;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+    &::after {
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: $color-tetiary-light;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  }
+  &__radio-input:checked + &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}

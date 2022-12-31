@@ -1,0 +1,75 @@
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: $color-grey-light-1;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+
+    @include respond(tab-port) {
+      margin-bottom: 4rem;
+    }
+  }
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+  &__navigation {
+    border-top: 2px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+      // display: inline-block;
+    }
+  }
+  &__list {
+    list-style: none;
+    color: $color-white;
+  }
+  &__items {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      text-decoration: none;
+      text-transform: uppercase;
+      // border: 2px solid red;
+      display: inline-block;
+      transition: all 0.3s ease;
+      background-color: $color-grey-dark-3;
+    }
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      transform: scale(1.2) rotate(4deg);
+    }
+  }
+  &__copyright {
+    text-transform: capitalize;
+    border-top: 2px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+    width: 80%;
+    float: right;
+    // border: 2px solid red;
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+      // display: inline-block;
+      float: none;
+    }
+  }
+}

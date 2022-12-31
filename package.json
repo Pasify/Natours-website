@@ -1,0 +1,18 @@
+{
+  "name": "natours-project",
+  "version": "1.0.0",
+  "description": "Landing page for Natours",
+  "main": "script.js",
+  "scripts": {
+    "watch:sass": "sass sass/main.scss css/style.css -w",
+    "compile:sass": "sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:sass": "sass css/style.prefix.css css/style.css --style compressed"
+  },
+  "author": "Paskkal",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.53.0"
+  }
+}

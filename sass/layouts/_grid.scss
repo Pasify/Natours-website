@@ -1,0 +1,66 @@
+.row {
+  max-width: $grid-width;
+  // background-color: rgb(89, 92, 151);
+  margin: 0 auto;
+  //   &:last-child {
+  //     margin-bottom: 0;
+  //   }
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+  &:not(:last-child) {
+    margin-bottom: $vertical-space;
+    @include respond(tab-port) {
+      margin-bottom: $vertical-space-small;
+    }
+  }
+  //clear fix for the float
+  @include clearfix;
+
+  // ATTRIBUTE SELECTOR
+  //^=selects all elements on which the class attributes starts with the value that we pass (shift+6=^) (starts with)
+  //*=selects any element which the class attribute contains the vlaue which we passed (conatins)
+  //$=selects any element which the class attribute ends with the value we pass (ends with)
+  [class^="col-"] {
+    // background-color: orangered;
+    float: left;
+    &:not(:last-child) {
+      margin-right: $horizontal-space;
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $vertical-space-small;
+      }
+    }
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+  /////////////////
+
+  .col-1-of-2 {
+    width: calc((100% - #{$horizontal-space}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$horizontal-space}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$horizontal-space}) / 3) + #{$horizontal-space}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$horizontal-space}) / 4);
+  }
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$horizontal-space}) / 4) + #{$horizontal-space}
+    );
+  }
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$horizontal-space}) / 4) + 2 * #{$horizontal-space}
+    );
+  }
+}
